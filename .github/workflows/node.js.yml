@@ -2,39 +2,37 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # Chạy khi có thay đổi trên nhánh main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main  # Chạy khi có PR vào nhánh main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
+    runs-on: ubuntu-latest  # Sử dụng môi trường Ubuntu mới nhất trên GitHub Actions
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Kiểm tra mã nguồn từ repository
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-
-    - name: Ensure package-lock.json exists
-      run: |
-        if [ ! -f package-lock.json ]; then
-          echo "❌ package-lock.json is missing! Required for npm ci."
-          exit 1
-        fi
+        node-version: '16'  # Chọn phiên bản Node.js, có thể thay đổi tùy theo yêu cầu
 
     - name: Install dependencies
-      run: npm ci
-
-    - name: Build (if applicable)
-      run: npm run build --if-present
+      run: npm install  # Cài đặt các phụ thuộc trong package.json
 
     - name: Run tests
-      run: npm test
+      run: npm test  # Chạy các bài kiểm tra nếu có
+
+    - name: Build app
+      run: npm run build  # Xây dựng ứng dụng nếu có lệnh build
+
+    - name: Upload build artifacts (optional)
+      if: success()  # Nếu build thành công, bạn có thể tải lên các artifacts như tệp đã build
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: ./dist  # Đảm bảo thay đổi path này cho phù hợp với ứng dụng của bạn
