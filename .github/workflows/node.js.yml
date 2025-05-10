@@ -2,37 +2,34 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-      - main  # Chạy khi có thay đổi trên nhánh main
+    branches: [main]
   pull_request:
-    branches:
-      - main  # Chạy khi có PR vào nhánh main
+    branches: [main]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Sử dụng môi trường Ubuntu mới nhất trên GitHub Actions
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # Kiểm tra mã nguồn từ repository
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Chọn phiên bản Node.js, có thể thay đổi tùy theo yêu cầu
+        node-version: '16'
 
     - name: Install dependencies
-      run: npm install  # Cài đặt các phụ thuộc trong package.json
+      run: npm install
 
     - name: Run tests
-      run: npm test  # Chạy các bài kiểm tra nếu có
+      run: npm test
 
     - name: Build app
-      run: npm run build  # Xây dựng ứng dụng nếu có lệnh build
+      run: npm run build
 
-    - name: Upload build artifacts (optional)
-      if: success()  # Nếu build thành công, bạn có thể tải lên các artifacts như tệp đã build
-      uses: actions/upload-artifact@v2
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
       with:
         name: build
-        path: ./dist  # Đảm bảo thay đổi path này cho phù hợp với ứng dụng của bạn
+        path: ./dist
