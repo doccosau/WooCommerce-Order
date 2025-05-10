@@ -14,10 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node.js (no cache)
         uses: actions/setup-node@v4
         with:
-          node-version: '16'  # Bạn có thể đổi thành 18 hoặc bản bạn cần
+          node-version: '16'
+          cache: 'false'  # hoặc bỏ dòng này cũng được
 
       - name: Install dependencies
         run: npm install
@@ -30,4 +31,4 @@ jobs:
         with:
           name: build
           path: ./dist
-          include-hidden-files: true  # nếu cần upload các file ẩn như .htaccess
+          include-hidden-files: true
