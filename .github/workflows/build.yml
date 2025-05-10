@@ -1,4 +1,4 @@
-name: Build and Upload Artifact
+name: Node.js CI
 
 on:
   push:
@@ -8,27 +8,28 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js (no cache)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
-          cache: 'false'  # hoặc bỏ dòng này cũng được
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 16
+        cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build project
-        run: npm run build
+    - name: Build
+      run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: ./dist
-          include-hidden-files: true
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: ./dist
+        include-hidden-files: true
