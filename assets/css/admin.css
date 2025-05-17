@@ -1,0 +1,181 @@
+/* WooCenter Admin CSS */
+
+/* Dashboard */
+.woocenter-dashboard {
+  margin-top: 20px;
+}
+
+.woocenter-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.woocenter-stat-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.woocenter-stat-icon {
+  margin-right: 15px;
+}
+
+.woocenter-stat-icon .dashicons {
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  color: #0073aa;
+}
+
+.woocenter-stat-content h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.woocenter-stat-content p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+.woocenter-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.woocenter-card h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Status Badges */
+.woocenter-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.woocenter-status-active {
+  background: #d4f9d4;
+  color: #0a6b0a;
+}
+
+.woocenter-status-inactive {
+  background: #f9d4d4;
+  color: #6b0a0a;
+}
+
+.woocenter-order-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.woocenter-order-status-completed {
+  background: #d4f9d4;
+  color: #0a6b0a;
+}
+
+.woocenter-order-status-processing {
+  background: #d4e7f9;
+  color: #0a4a6b;
+}
+
+.woocenter-order-status-pending {
+  background: #f9f4d4;
+  color: #6b5a0a;
+}
+
+.woocenter-order-status-on-hold {
+  background: #f9e7d4;
+  color: #6b3a0a;
+}
+
+.woocenter-order-status-cancelled {
+  background: #f9d4d4;
+  color: #6b0a0a;
+}
+
+.woocenter-order-status-refunded {
+  background: #e7d4f9;
+  color: #4a0a6b;
+}
+
+.woocenter-order-status-failed {
+  background: #f9d4e7;
+  color: #6b0a4a;
+}
+
+/* View All Link */
+.woocenter-view-all {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* API Settings */
+.woocenter-api-instructions {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.woocenter-api-instructions h3 {
+  margin-top: 0;
+}
+
+.woocenter-api-instructions ol {
+  margin-left: 20px;
+}
+
+/* Sync Data */
+.woocenter-sync-results {
+  margin-bottom: 20px;
+}
+
+.woocenter-sync-site {
+  margin-bottom: 15px;
+}
+
+.woocenter-sync-site h3 {
+  margin-bottom: 10px;
+}
+
+.woocenter-sync-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.woocenter-sync-option {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+  .woocenter-stat-card {
+    min-width: 100%;
+  }
+
+  .woocenter-sync-option {
+    min-width: 100%;
+  }
+}
